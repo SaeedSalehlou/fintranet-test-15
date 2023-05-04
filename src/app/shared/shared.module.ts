@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialApisModule } from './material-apis/material-apis.module';
 
 
 
@@ -7,6 +8,10 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule,
+    MaterialApisModule
+  ],
+  exports: [
+    MaterialApisModule
   ]
 })
 export class SharedModule { }

@@ -10,13 +10,14 @@ import { BaseResponseModel } from 'src/app/domain/models/base-response.model';
 })
 export class UserService {
 
-  // private url = 'https://dummyjson.com';
+  private serviceUrl = 'https://dummyjson.com';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   get() {
-    let m = usersMockData;
-    return m;
+    let response = this.http.get(this.serviceUrl);
+    debugger;
+    return response;
   }
 
 }

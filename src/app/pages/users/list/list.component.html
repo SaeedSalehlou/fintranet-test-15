@@ -1,0 +1,60 @@
+<div>
+    <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Ex. San Francisco">
+    </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- firstName Column -->
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> firstName </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- lastName Column -->
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- age Column -->
+    <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <!-- gender Column -->
+    <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- phone Column -->
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+    <!-- birthDate Column -->
+    <ng-container matColumnDef="birthDate">
+        <th mat-header-cell *matHeaderCellDef> birthDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.birthDate}} </td>
+    </ng-container>
+
+    <!-- eyeColor Column -->
+    <ng-container matColumnDef="eyeColor">
+        <th mat-header-cell *matHeaderCellDef> eyeColor </th>
+        <td mat-cell *matCellDef="let element"> {{element.eyeColor}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
