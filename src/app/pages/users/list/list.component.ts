@@ -36,8 +36,13 @@ export class ListComponent {
   }
 
   search(searchTerm: string) {
-    this.dataSource.filter = searchTerm.trim().toLowerCase();
-
+    let filterData = this.repos.filter(
+      (current) => {
+        return current.firstName?.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+          current.lastName?.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      }
+    )
+    this.dataSource.data = filterData;
   }
 }
 

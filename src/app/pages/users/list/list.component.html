@@ -1,7 +1,7 @@
 <div>
     <mat-form-field class="example-full-width">
         <mat-label>Search</mat-label>
-        <input matInput placeholder="Ex. San Francisco">
+        <input #searchTerm matInput placeholder="search by Firstname and Lastname" (keyup)="search(searchTerm.value)">
     </mat-form-field>
 </div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

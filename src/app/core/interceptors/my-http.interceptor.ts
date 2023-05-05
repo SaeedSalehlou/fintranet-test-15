@@ -13,6 +13,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    debugger;
     return next.handle(request);
   }
 }

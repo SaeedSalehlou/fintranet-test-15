@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { usersMockData } from 'src/app/domain/mockData/users-mock-data';
 import { UserModel } from 'src/app/domain/models/user.model';
 import { BaseResponseModel } from 'src/app/domain/models/base-response.model';
+import { Observable, map, of } from 'rxjs';
 
 
 @Injectable({
@@ -10,14 +11,19 @@ import { BaseResponseModel } from 'src/app/domain/models/base-response.model';
 })
 export class UserService {
 
-  private serviceUrl = 'https://dummyjson.com';
+  private baseUrl = 'https://dummyjson.com';
 
   constructor(private http: HttpClient) { }
 
-  get() {
-    let response = this.http.get(this.serviceUrl);
-    debugger;
-    return response;
+  get(): Observable<any> {
+    return this.http.get(this.baseUrl + '/users')
   }
 
+  get2() {
+    return this.http.get<BaseResponseModel>(this.baseUrl + '/users')
+      .subscribe(
+        (data: BaseResponseModel) => {
+          return JSON.stringify(data);
+        })
+  }
 }
